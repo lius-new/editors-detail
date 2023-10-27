@@ -12,8 +12,6 @@ M.treesitter = {
     "c",
     "markdown",
     "markdown_inline",
-    "toml",
-    "rust",
   },
   auto_install = true,
   highlight = {
