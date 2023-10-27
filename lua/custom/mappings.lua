@@ -194,6 +194,10 @@ M.lius_telescope = {
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes(主题)" },
 
     ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks(书签)" },
+
+    ["<leader>ta"] = { "<cmd> TodoTelescope <CR>", "todo comments (代办事项)" },
+
+    ["<leader>te"] = { "<cmd> TroubleToggle <CR>", "show errors (打开或关闭显示错误的窗口)" },
   },
 }
 
@@ -344,6 +348,5 @@ M.lius_tabufline = {
     },
   },
 }
-
 
 return M
