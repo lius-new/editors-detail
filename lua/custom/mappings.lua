@@ -345,5 +345,58 @@ M.lius_tabufline = {
   },
 }
 
+-- dap
+M.lius_dap = {
 
+  n = {
+    -- cycle through buffers
+    ["<leader>db"] = {
+      "<cmd> DapToggleBreakpoint <CR>",
+      "标记断点",
+    },
+    ["<leader>dus"] = {
+      function()
+        local widgets = require "dap.ui.widgets"
+        local sidebar = widgets.sidebar(widgets.scopes)
+        sidebar.open()
+      end,
+      "打开断点侧边栏",
+    },
+  },
+}
+-- dap_go
+M.lius_dap_go = {
+  plugin = true,
+
+  -- :DapStepOver
+  n = {
+    ["<leader>dgt"] = {
+      function()
+        require("dap-go").debug_test()
+      end,
+      "运行最近的test",
+    },
+    ["<leader>dgl"] = {
+      function()
+        require("dap-go").debug_last()
+      end,
+      "重新运行上一个的test",
+    },
+  },
+}
+-- olex gopher mapping
+
+M.lius_gopher = {
+  plugin = true,
+  n = {
+    ["<leader>gsj"] = {
+      "<cmd> GoTagAdd json <CR>",
+      "结构体中添加json",
+    },
+    ["<leader>gsy"] = {
+      "<cmd> GoTagAdd yml <CR>",
+      "结构体中添加yml",
+    },
+  },
+}
 return M
