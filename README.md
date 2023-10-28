@@ -14,3 +14,4 @@
 - neovim detail
 - vscode detail
 - idea detail
+- Neovide
