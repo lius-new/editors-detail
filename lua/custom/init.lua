@@ -16,3 +16,6 @@ opt.foldenable = true
 opt.foldmethod = "manual"
 opt.foldcolumn = "0"
 opt.foldlevel = 3
+
+-- neovide font
+vim.o.guifont = "Fira Code:h8"

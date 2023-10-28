@@ -60,7 +60,25 @@ local plugins = {
   --   "mg979/vim-visual-multi",
   --   lazy = false,
   -- }
-  -- rust
+  -- 显示错误信息
+  {
+    "folke/trouble.nvim",
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    config = function()
+      require("trouble").setup()
+    end,
+    lazy = false,
+  },
+  -- 显示todo信息
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    config = function()
+      require("todo-comments").setup()
+    end,
+    lazy = false,
+  },
+
 
 }
 
