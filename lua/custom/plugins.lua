@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -25,7 +25,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -115,6 +115,7 @@ local plugins = {
       require("cmp").setup(opts)
     end,
   },
+  -- 显示错误信息
   {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -123,6 +124,7 @@ local plugins = {
     end,
     lazy = false,
   },
+  -- 显示todo信息
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
@@ -130,7 +132,24 @@ local plugins = {
       require("todo-comments").setup()
     end,
     lazy = false,
-  }
+  },
+  -- 提供tabnine-nvim支持
+  {
+    "codota/tabnine-nvim",
+    build = "./dl_binaries.sh",
+    lazy = false,
+    config = function()
+      require("tabnine").setup {
+        disable_auto_comment = true,
+        accept_keymap = "<Tab>",
+        dismiss_keymap = "<C-]>",
+        debounce_ms = 800,
+        suggestion_color = { gui = "#808080", cterm = 244 },
+        exclude_filetypes = { "TelescopePrompt", "NvimTree" },
+        log_file_path = nil, -- absolute path to Tabnine log file
+      }
+    end,
+  },
 }
 
 return plugins
