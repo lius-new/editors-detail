@@ -349,4 +349,34 @@ M.lius_tabufline = {
   },
 }
 
+-- dap
+M.lius_dap = {
+
+  n = {
+    ["<leader>db"] = {
+      "<cmd> DapToggleBreakpoint <CR>",
+      "打断点",
+    },
+    ["<leader>dus"] = {
+      function()
+        local widgets = require "dap.ui.widgets"
+        local sidebar = widgets.sidebar(widgets.scopes)
+        sidebar.open()
+      end,
+      "打开调试侧边栏",
+    },
+  },
+}
+
+-- crates
+M.lius_crate = {
+  n = {
+    ["<leader>rcu"] = {
+      function()
+        require("crates").upgrade_all_crates()
+      end,
+      "更新所有的crate",
+    },
+  },
+}
 return M

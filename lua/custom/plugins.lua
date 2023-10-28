@@ -63,10 +63,26 @@ local plugins = {
   -- rust
   {
     "simrat39/rust-tools.nvim",
-    config = function()
-      require("rust-tools").setup()
+    ft = "rust",
+    dependencies = "neovim/nvim-lspconfig",
+    config = function(_, opts)
+      require("rust-tools").setup(opts)
     end,
-    lazy = false,
+    opts = function()
+      return require "custom.configs.rust_tools"
+    end,
+  },
+  {
+    "mfussenegger/nvim-dap",
+  },
+  {
+    "saecki/crates.nvim",
+    ft = { "rust", "toml" },
+    config = function(_, opts)
+      local crates = require "crates"
+      crates.setup(opts)
+      crates.show()
+    end,
   },
   {
     "hrsh7th/nvim-cmp",
@@ -109,7 +125,9 @@ local plugins = {
       },
     },
     opts = function()
-      return require "custom.configs.cmp"
+      local M = require "plugins.configs.cmp"
+      table.insert(M.sources, { name = "crates" })
+      return M
     end,
     config = function(_, opts)
       require("cmp").setup(opts)

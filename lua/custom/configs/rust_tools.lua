@@ -7,25 +7,27 @@ local util = require "lspconfig/util"
 -- if you just want default config for the servers then put them in a table
 local servers = { "html", "cssls", "tsserver", "clangd" }
 
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
+local options = {
+  server = {
     on_attach = on_attach,
     capabilities = capabilities,
-  }
-end
+  },
+}
 
 -- lspconfig.rust.setup { rust }
--- lspconfig.rust_analyzer.setup {
---   on_attach = on_attach,
---   capabilities = capabilities,
---   filetypes = { "rust" },
---   root_dir = util.root_pattern "Cargo.toml",
---   settings = {
---     ["rust-analyzer"] = {
---       cargo = {
---         -- 有助于crate自动补全
---         allFeatures = true,
---       },
---     },
---   },
--- }
+
+lspconfig.rust_analyzer.setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "rust" },
+  root_dir = util.root_pattern "Cargo.toml",
+  settings = {
+    ["rust-analyzer"] = {
+      cargo = {
+        -- 有助于crate自动补全
+        allFeatures = true,
+      },
+    },
+  },
+}
+return options
