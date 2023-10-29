@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -25,7 +25,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -79,7 +79,16 @@ local plugins = {
     lazy = false,
   },
 
-
+  -- 显示方法大纲
+  {
+    "simrat39/symbols-outline.nvim",
+    config = function()
+      require("symbols-outline").setup()
+      require("core.utils").load_mappings "lius_symbols_outline"
+    end,
+    -- 关闭懒加载
+    lazy = false,
+  },
 }
 
 return plugins
