@@ -371,6 +371,12 @@ M.lius_dap = {
       "<cmd> RustDebuggables <CR>",
       "执行调试模式",
     },
+    ["<leader>dt"] = {
+      function()
+        require("dap").terminate()
+      end,
+      "停止调试",
+    },
     ["<leader>dar"] = {
       function()
         require("dap").restart()
@@ -381,6 +387,8 @@ M.lius_dap = {
       function()
         local widgets = require "dap.ui.widgets"
         local sidebar = widgets.sidebar(widgets.scopes)
+        local repl = require "dap.repl"
+        repl.open()
         sidebar.open()
       end,
       "打开调试侧边栏",
@@ -401,7 +409,7 @@ M.lius_dap = {
       function()
         require("dap").step_out()
       end,
-      "离开",
+      "跳出函数或方法",
     },
   },
 }
