@@ -50,7 +50,7 @@ M.lius_base = {
     ["<C-l>"] = { "<C-w>l", "聚焦窗口移动右面" }, -- 注销切换窗口内分屏
 
     -- Leader
-    ["<leader>q"] = { ":quit!<CR>", opts = { nowait = true }, "退出" }, -- 退出
+    ["<leader>qq"] = { ":quit!<CR>", opts = { nowait = true }, "退出" }, -- 退出
     ["<leader>s"] = { ":split<CR>", opts = { nowait = true }, "在右边打开" }, -- 水平方向切屏
     ["<leader>vs"] = { ":vsplit<CR>", opts = { nowait = true }, "在下面打开" }, -- 垂直方向切屏
 
