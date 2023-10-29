@@ -47,18 +47,6 @@ M.lius_base = {
     ["<C-k>"] = { "<cmd> resize -3<CR>", "减少宽度" },
     ["<C-h>"] = { "<cmd> vertical resize +3<CR>", "增加宽度" },
     ["<C-l>"] = { "<cmd> vertical resize -3<CR>", "减少宽度" },
-
-    -- Leader
-    ["<leader>qq"] = { ":quit!<CR>", opts = { nowait = true }, "退出" }, -- 退出
-    ["<leader>s"] = { ":split<CR>", opts = { nowait = true }, "在右边打开" }, -- 水平方向切屏
-    ["<leader>vs"] = { ":vsplit<CR>", opts = { nowait = true }, "在下面打开" }, -- 垂直方向切屏
-
-    -- move
-    ["<leader>j"] = { "<C-w>j", "聚焦窗口移动下面" }, -- 注销切换窗口内分屏
-    ["<leader>k"] = { "<C-w>k", "聚焦窗口移动上面" }, -- 注销切换窗口内分屏
-    ["<leader>h"] = { "<C-w>h", "聚焦窗口移动左面" }, -- 注销切换窗口内分屏
-    ["<leader>l"] = { "<C-w>l", "聚焦窗口移动右面" }, -- 注销切换窗口内分屏
-
     -- 格式化
     ["<C-f>"] = {
       function()
@@ -66,6 +54,18 @@ M.lius_base = {
       end,
       "格式化代码",
     },
+
+    -- Leader
+    ["<leader>s"] = { ":split<CR>", opts = { nowait = true }, "在右边打开" }, -- 水平方向切屏
+    ["<leader>vs"] = { ":vsplit<CR>", opts = { nowait = true }, "在下面打开" }, -- 垂直方向切屏
+
+    -- alt
+    -- move
+    ["<A-j>"] = { "<C-w>j", "聚焦窗口移动下面" }, -- 注销切换窗口内分屏
+    ["<A-k>"] = { "<C-w>k", "聚焦窗口移动上面" }, -- 注销切换窗口内分屏
+    ["<A-h>"] = { "<C-w>h", "聚焦窗口移动左面" }, -- 注销切换窗口内分屏
+    ["<A-l>"] = { "<C-w>l", "聚焦窗口移动右面" }, -- 注销切换窗口内分屏
+    ["<A-q>"] = { ":quit!<CR>", opts = { nowait = true }, "退出" }, -- 退出
   },
   x = {
     ["<C-c>"] = { "+y <CR>", "复制内容" }, -- 复制到剪切板
