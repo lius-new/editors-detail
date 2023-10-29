@@ -362,8 +362,20 @@ M.lius_dap = {
 
   n = {
     ["<leader>db"] = {
-      "<cmd> DapToggleBreakpoint <CR>",
+      function()
+        require("dap").toggle_breakpoint()
+      end,
       "打断点",
+    },
+    ["<leader>dr"] = {
+      "<cmd> RustDebuggables <CR>",
+      "执行调试模式",
+    },
+    ["<leader>dar"] = {
+      function()
+        require("dap").restart()
+      end,
+      "重新执行调试模式",
     },
     ["<leader>dus"] = {
       function()
@@ -372,6 +384,24 @@ M.lius_dap = {
         sidebar.open()
       end,
       "打开调试侧边栏",
+    },
+    ["<leader>ds"] = {
+      function()
+        require("dap").step_over()
+      end,
+      "逐行调试",
+    },
+    ["<leader>dsi"] = {
+      function()
+        require("dap").step_into()
+      end,
+      "进入方法",
+    },
+    ["<leader>do"] = {
+      function()
+        require("dap").step_out()
+      end,
+      "离开",
     },
   },
 }
