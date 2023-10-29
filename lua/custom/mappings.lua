@@ -43,11 +43,11 @@ M.lius_base = {
     ["<C-u>"] = { "10k", "水平方向滚动" }, -- 水平方向翻动
     ["<C-d>"] = { "10j", "垂直方向滚动" }, -- 垂直方向翻动
 
-    -- resize
-    ["<C-j>"] = { "<cmd> resize +3<CR>", "增加宽度" },
-    ["<C-k>"] = { "<cmd> resize -3<CR>", "减少宽度" },
-    ["<C-h>"] = { "<cmd> vertical resize +3<CR>", "增加宽度" },
-    ["<C-l>"] = { "<cmd> vertical resize -3<CR>", "减少宽度" },
+    -- move
+    ["<C-j>"] = { "<C-w>j", "聚焦窗口移动下面" }, -- 注销切换窗口内分屏
+    ["<C-k>"] = { "<C-w>k", "聚焦窗口移动上面" }, -- 注销切换窗口内分屏
+    ["<C-h>"] = { "<C-w>h", "聚焦窗口移动左面" }, -- 注销切换窗口内分屏
+    ["<C-l>"] = { "<C-w>l", "聚焦窗口移动右面" }, -- 注销切换窗口内分屏
 
     -- 格式化
     ["<C-f>"] = {
@@ -57,16 +57,16 @@ M.lius_base = {
       "格式化代码",
     },
 
-    -- move
-    ["<leader>j"] = { "<C-w>j", "聚焦窗口移动下面" }, -- 注销切换窗口内分屏
-    ["<leader>k"] = { "<C-w>k", "聚焦窗口移动上面" }, -- 注销切换窗口内分屏
-    ["<leader>h"] = { "<C-w>h", "聚焦窗口移动左面" }, -- 注销切换窗口内分屏
-    ["<leader>l"] = { "<C-w>l", "聚焦窗口移动右面" }, -- 注销切换窗口内分屏
-
     -- Leader
-    ["<leader>qq"] = { ":quit!<CR>", opts = { nowait = true }, "退出" }, -- 退出
     ["<leader>s"] = { ":split<CR>", opts = { nowait = true }, "在右边打开" }, -- 水平方向切屏
     ["<leader>vs"] = { ":vsplit<CR>", opts = { nowait = true }, "在下面打开" }, -- 垂直方向切屏
+
+    -- resize
+    ["<A-j>"] = { "<cmd> resize +3<CR>", "增加宽度" },
+    ["<A-k>"] = { "<cmd> resize -3<CR>", "减少宽度" },
+    ["<A-h>"] = { "<cmd> vertical resize +3<CR>", "增加宽度" },
+    ["<A-l>"] = { "<cmd> vertical resize -3<CR>", "减少宽度" },
+    ["<A-q>"] = { ":quit!<CR>", opts = { nowait = true }, "退出" }, -- 退出
   },
   x = {
     ["<C-c>"] = { "+y <CR>", "复制内容" }, -- 复制到剪切板
@@ -136,7 +136,7 @@ M.lius_nvterm = {
       "打开终端(悬浮)",
     },
 
-    ["<A-h>"] = {
+    ["<A-t>"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
@@ -160,7 +160,7 @@ M.lius_nvterm = {
       "打开终端(悬浮)",
     },
 
-    ["<A-h>"] = {
+    ["<A-t>"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
