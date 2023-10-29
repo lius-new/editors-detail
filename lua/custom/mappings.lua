@@ -135,7 +135,7 @@ M.lius_nvterm = {
       "打开终端(悬浮)",
     },
 
-    ["<A-h>"] = {
+    ["<A-t>"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
@@ -159,7 +159,7 @@ M.lius_nvterm = {
       "打开终端(悬浮)",
     },
 
-    ["<A-h>"] = {
+    ["<A-t>"] = {
       function()
         require("nvterm.terminal").toggle "horizontal"
       end,
