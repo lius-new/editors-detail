@@ -151,6 +151,15 @@ local plugins = {
     end,
     lazy = false,
   },
+  -- 显示方法大纲
+  {
+    "simrat39/symbols-outline.nvim",
+    ft = "rust",
+    config = function()
+      require("symbols-outline").setup()
+      require("core.utils").load_mappings "lius_symbols_outline"
+    end,
+  },
 }
 
 return plugins
