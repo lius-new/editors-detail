@@ -50,6 +50,7 @@ M.lius_base = {
     ["<C-l>"] = { "<C-w>l", "聚焦窗口移动右面" }, -- 注销切换窗口内分屏
 
     -- Leader
+    ["<leader>q"] = { ":quit!<CR>", opts = { nowait = true }, "退出" }, -- 退出
     ["<leader>s"] = { ":split<CR>", opts = { nowait = true }, "在右边打开" }, -- 水平方向切屏
     ["<leader>vs"] = { ":vsplit<CR>", opts = { nowait = true }, "在下面打开" }, -- 垂直方向切屏
 
@@ -66,7 +67,6 @@ M.lius_base = {
     ["<A-k>"] = { "<cmd> resize -3<CR>", "减少宽度" },
     ["<A-h>"] = { "<cmd> vertical resize +3<CR>", "增加宽度" },
     ["<A-l>"] = { "<cmd> vertical resize -3<CR>", "减少宽度" },
-    ["<A-q>"] = { ":quit!<CR>", opts = { nowait = true }, "退出" }, -- 退出
   },
   x = {
     ["<C-c>"] = { "+y <CR>", "复制内容" }, -- 复制到剪切板
