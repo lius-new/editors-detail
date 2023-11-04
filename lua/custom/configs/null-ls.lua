@@ -16,6 +16,7 @@ local sources = {
 
   -- rust
   b.formatting.rustfmt,
+  b.formatting.rustfmt.with { extra_args = { "--edition=2021" } } ,
 }
 
 null_ls.setup {
