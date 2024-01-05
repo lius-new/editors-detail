@@ -417,4 +417,18 @@ M.lius_symbols_outline = {
     },
   },
 }
+
+-- 重启neovide clipboard
+M.lius_neovide = {
+  n = {
+    ["<leader>cr"] = {
+      function()
+        print("restart clipboard")
+        vim.g.loaded_clipboard_provider = nil
+        vim.api.nvim_cmd({ cmd = "runtime", args = { "autoload/provider/clipboard.vim" } }, {})
+      end,
+      "重启neovide的 clipboard",
+    },
+  },
+}
 return M
