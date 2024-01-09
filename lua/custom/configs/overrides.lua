@@ -42,7 +42,7 @@ M.mason = {
     -- c/cpp stuff
     -- "clangd",
     -- "clang-format",
-    --
+
     "vue-language-server",
   },
 }

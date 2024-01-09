@@ -14,8 +14,7 @@ for _, lsp in ipairs(servers) do
 end
 
 lspconfig.volar.setup {
-    filetypes = { 'javascript', 'typescript', 'javascriptreact', 'typescriptreact', 'vue', 'json'}
+  filetypes = { "javascript", "typescript", "javascriptreact", "typescriptreact", "vue", "json" },
 }
 
---
 -- lspconfig.pyright.setup { blabla}
