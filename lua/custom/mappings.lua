@@ -42,11 +42,13 @@ M.lius_base = {
     -- Ctrl
     ["<C-u>"] = { "10k", "水平方向滚动" }, -- 水平方向翻动
     ["<C-d>"] = { "10j", "垂直方向滚动" }, -- 垂直方向翻动
-    -- resize
-    ["<C-j>"] = { "<cmd> resize +3<CR>", "增加宽度" },
-    ["<C-k>"] = { "<cmd> resize -3<CR>", "减少宽度" },
-    ["<C-h>"] = { "<cmd> vertical resize +3<CR>", "增加宽度" },
-    ["<C-l>"] = { "<cmd> vertical resize -3<CR>", "减少宽度" },
+
+    -- move
+    ["<C-j>"] = { "<C-w>j", "聚焦窗口移动下面" }, -- 注销切换窗口内分屏
+    ["<C-k>"] = { "<C-w>k", "聚焦窗口移动上面" }, -- 注销切换窗口内分屏
+    ["<C-h>"] = { "<C-w>h", "聚焦窗口移动左面" }, -- 注销切换窗口内分屏
+    ["<C-l>"] = { "<C-w>l", "聚焦窗口移动右面" }, -- 注销切换窗口内分屏
+
     -- 格式化
     ["<C-f>"] = {
       function()
@@ -56,23 +58,18 @@ M.lius_base = {
     },
 
     -- Leader
+    ["<leader>qq"] = { ":quit!<CR>", opts = { nowait = true }, "退出" }, -- 退出
     ["<leader>s"] = { ":split<CR>", opts = { nowait = true }, "在右边打开" }, -- 水平方向切屏
     ["<leader>vs"] = { ":vsplit<CR>", opts = { nowait = true }, "在下面打开" }, -- 垂直方向切屏
 
-    -- alt
-    -- move
-    ["<A-j>"] = { "<C-w>j", "聚焦窗口移动下面" }, -- 注销切换窗口内分屏
-    ["<A-k>"] = { "<C-w>k", "聚焦窗口移动上面" }, -- 注销切换窗口内分屏
-    ["<A-h>"] = { "<C-w>h", "聚焦窗口移动左面" }, -- 注销切换窗口内分屏
-    ["<A-l>"] = { "<C-w>l", "聚焦窗口移动右面" }, -- 注销切换窗口内分屏
-    ["<A-q>"] = { ":quit!<CR>", opts = { nowait = true }, "退出" }, -- 退出
+    -- resize
+    ["<A-j>"] = { "<cmd> resize +3<CR>", "增加宽度" },
+    ["<A-k>"] = { "<cmd> resize -3<CR>", "减少宽度" },
+    ["<A-h>"] = { "<cmd> vertical resize +3<CR>", "增加宽度" },
+    ["<A-l>"] = { "<cmd> vertical resize -3<CR>", "减少宽度" },
   },
   x = {
     ["<C-c>"] = { "+y <CR>", "复制内容" }, -- 复制到剪切板
-    -- theme switcher
-    ["<leader>th"] = { "<cmd> Telescope themes <CR>", "主题" },
-    -- bookmarks
-    ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
   },
 }
 
@@ -122,6 +119,7 @@ M.lius_telescope = {
     -- theme switcher
     ["<leader>th"] = { "<cmd> Telescope themes <CR>", "Nvchad themes" },
 
+    -- book marks
     ["<leader>ma"] = { "<cmd> Telescope marks <CR>", "telescope bookmarks" },
   },
 }
@@ -366,6 +364,7 @@ M.lius_symbols_outline = {
     },
   },
 }
+
 -- 重启neovide clipboard
 M.lius_neovide = {
   n = {
@@ -379,5 +378,4 @@ M.lius_neovide = {
     },
   },
 }
-
 return M

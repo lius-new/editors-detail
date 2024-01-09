@@ -18,4 +18,4 @@ opt.foldcolumn = "0"
 opt.foldlevel = 3
 
 -- neovide font
-vim.o.guifont = "FiraCode Nerd Font:h8"
+vim.o.guifont = "FiraCode Nerd Font:h10"
