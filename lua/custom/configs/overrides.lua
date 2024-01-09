@@ -44,7 +44,6 @@ M.mason = {
     -- "clang-format",
     --
     "vue-language-server",
-    "emmet-ls"
   },
 }
 
