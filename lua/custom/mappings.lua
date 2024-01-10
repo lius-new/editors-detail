@@ -76,7 +76,7 @@ M.lius_base = {
 -- 注释
 M.lius_comment = {
   n = {
-    ["<C-/>"] = { -- 注释
+    ["<A-/>"] = { -- 注释
       function()
         require("Comment.api").toggle.linewise.current()
       end,
@@ -84,7 +84,7 @@ M.lius_comment = {
     },
   },
   v = {
-    ["<C-/>"] = { -- 注释
+    ["<A-/>"] = { -- 注释
       "<ESC><cmd>lua require('Comment.api').toggle.linewise(vim.fn.visualmode())<CR>",
       "可视模式注释",
     },
@@ -442,7 +442,7 @@ M.lius_neovide = {
   n = {
     ["<leader>cr"] = {
       function()
-        print("restart clipboard")
+        print "restart clipboard"
         vim.g.loaded_clipboard_provider = nil
         vim.api.nvim_cmd({ cmd = "runtime", args = { "autoload/provider/clipboard.vim" } }, {})
       end,

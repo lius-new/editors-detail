@@ -42,4 +42,4 @@ autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 -- vim.wo.foldexpr = 'nvim_treesitter#foldexpr()'
 
 -- neovide font
-vim.o.guifont = "Fira Code:h8"
+vim.o.guifont = "FiraCode Nerd Font:h10"
