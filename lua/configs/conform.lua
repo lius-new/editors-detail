@@ -2,7 +2,7 @@ local options = {
   formatters_by_ft = {
     -- lua = { "stylua" },
     rust = { "rustfmt", lsp_format = "fallback" },
-    go = { "trim_newlines", "goimports_reviser", "golines", "gofmt" },
+    go = { "goimports_reviser", "golines", "gofmt" },
     javascript = { "prettierd", "prettier", stop_after_first = true },
     typescript = { "prettierd", "prettier", stop_after_first = true },
     javascriptreact = { "prettierd", "prettier", stop_after_first = true },

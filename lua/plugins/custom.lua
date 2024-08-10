@@ -1,20 +1,18 @@
 local plugins = {
-
+  -- MASON plugin
   {
     "williamboman/mason.nvim",
     config = function()
       require "configs.mason"
     end,
   },
-
-  -- If your opts uses a function call ex: require*, then make opts spec a function
-  -- should return the modified default config as well
-  -- here we just call the default telescope config
-  -- And edit its mappinsg
   -- TODO plugin
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
+    opts = function()
+      require("todo-comments").setup()
+    end,
     lazy = false, -- 取消lazy loader
   },
   -- outline plugin
@@ -37,7 +35,6 @@ local plugins = {
       vim.cmd [[silent! GoInstallDeps]]
     end,
   },
-
   ----------rust plugin----------
   -- rust crate plugin
   {
@@ -49,7 +46,28 @@ local plugins = {
       crates.show()
     end,
   },
-
+  ----------debug plugin----------
+  {
+    "mfussenegger/nvim-dap",
+    lazy = false,
+    dependencies = {
+      {
+        "rcarriga/nvim-dap-ui",
+        dependencies = {
+          "nvim-neotest/nvim-nio",
+        },
+      },
+      "theHamsta/nvim-dap-virtual-text",
+      "nvim-telescope/telescope-dap.nvim",
+    },
+    config = function()
+      require "configs.dap"
+    end,
+  },
+  {
+    "leoluz/nvim-dap-go",
+    ft = "go",
+  },
 }
 
 return plugins

@@ -1,4 +1,4 @@
-require("mason").setup({
+require("mason").setup {
   ensure_installed = {
     -- lua stuff
     "lua-language-server",
@@ -22,5 +22,5 @@ require("mason").setup({
     "rust-analyzer",
     "rustfmt",
     "codelldb",
-}})
-
+  },
+}
