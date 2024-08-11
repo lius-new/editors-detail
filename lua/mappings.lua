@@ -144,9 +144,9 @@ map("n", "<leader>gsj", "<cmd> GoTagAdd json <CR>", { desc = "GoPher 为结构�
 map("n", "<leader>gsy", "<cmd> GoTagAdd yaml <CR>", { desc = "GoPher 为结构体添加yaml" })
 map("n", "<leader>gst", "<cmd> GoTagAdd toml <CR>", { desc = "GoPher 为结构体添加toml" })
 map("n", "<leader>gsg", "<cmd> GoTagAdd gorm <CR>", { desc = "GoPher 为结构体添加gorm" })
-map("n", "<leader>gie", "<cmd> GoIfErr gorm <CR>", { desc = "GoPher 为结构体添加if err语段" })
-map("n", "<leader>gft", "<cmd> GoTestAdd gorm <CR>", { desc = "GoPher 为当前函数生成测试" })
-map("n", "<leader>gfat", "<cmd> GoTestsAdd gorm <CR>", { desc = "GoPher 为当前文件生成测试" })
+map("n", "<leader>gie", "<cmd> GoIfErr <CR>", { desc = "GoPher 为结构体添加if err语段" })
+map("n", "<leader>gft", "<cmd> GoTestAdd <CR>", { desc = "GoPher 为当前函数生成测试" })
+map("n", "<leader>gfat", "<cmd> GoTestsAdd <CR>", { desc = "GoPher 为当前文件生成测试" })
 
 local dap = require "dap"
 map("n", "<leader>ds", function()
