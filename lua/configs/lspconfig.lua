@@ -4,6 +4,8 @@ require("nvchad.configs.lspconfig").defaults()
 local lspconfig = require "lspconfig"
 local util = require "lspconfig/util"
 
+-- 代码增强
+local inlayhints = require "lsp-inlayhints"
 -- EXAMPLE
 local servers = { "html", "cssls" }
 local nvlsp = require "nvchad.configs.lspconfig"
@@ -26,7 +28,10 @@ end
 
 -- golang config
 lspconfig.gopls.setup {
-  on_attach = nvlsp.on_attach,
+  on_attach = function(client, bufnr)
+    nvlsp.on_attach(client, bufnr)
+    inlayhints.on_attach(client, bufnr)
+  end,
   capabilities = nvlsp.capabilities,
   cmd = { "gopls" },
   filetypes = { "go", "gomod", "gowork", "gotmpl" },
@@ -43,11 +48,20 @@ lspconfig.gopls.setup {
         usePlaceholders = true,
         completeUnimported = true,
       },
+      -- 显示增强
+      hints = {
+        assignVariableTypes = true,
+        compositeLiteralFields = true,
+        constantValues = true,
+        functionTypeParameters = true,
+        parameterNames = true,
+        rangeVariableTypes = true,
+      },
     },
   },
 }
 lspconfig.rust_analyzer.setup {
-  on_attach = nvlsp.on_attach,
+  -- on_attach = nvlsp.on_attach,
   capabilities = nvlsp.capabilities,
   filetypes = { "rust" },
   root_dir = util.root_pattern "Cargo.toml",
@@ -56,6 +70,15 @@ lspconfig.rust_analyzer.setup {
       cargo = {
         allFeatures = true,
       },
+      inlayHints = {
+        typeHints = true,
+        parameterHints = true,
+        chainingHints = true,
+      },
     },
   },
+  on_attach = function(client, bufnr)
+    nvlsp.on_attach(client, bufnr)
+    inlayhints.on_attach(client, bufnr)
+  end,
 }

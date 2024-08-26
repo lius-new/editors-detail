@@ -16,10 +16,10 @@ nomap("n", "<C-l>") -- 取消键位功能: 注销切换窗口内分屏
 nomap("n", "<C-c>") -- 取消键位功能: 复制到剪切板
 -- nomap({ "n","t"}, "<leader>h")          -- 取消键位功能: leader打开底部终端
 -- nomap({ "n","t"}, "<leader>v")          -- 取消键位功能: leader打开一侧终端
-map("n", "<leader>h", function() end, { desc = "" }) -- 取消键位功能: leader打开底部终端
-map("t", "<leader>h", function() end, { desc = "" }) -- 取消键位功能: leader打开底部终端
-map("n", "<leader>v", function() end, { desc = "" }) -- 取消键位功能: leader打开底部终端
-map("t", "<leader>v", function() end, { desc = "" }) -- 取消键位功能: leader打开底部终端
+-- map("n", "<leader>h", function() end, { desc = "" }) -- 取消键位功能: leader打开底部终端
+-- map("t", "<leader>h", function() end, { desc = "" }) -- 取消键位功能: leader打开底部终端
+-- map("n", "<leader>v", function() end, { desc = "" }) -- 取消键位功能: leader打开底部终端
+-- map("t", "<leader>v", function() end, { desc = "" }) -- 取消键位功能: leader打开底部终端
 
 -- add yours here
 ------------------
@@ -109,8 +109,8 @@ end, { desc = "LSP 查看签名类型定义" })
 map("n", "<leader>ra", function()
   require("nvchad.renamer").open()
 end, { desc = "LSP 修改变量名称" })
-map("n", "<leader>ca", function()
-  vim.lsp.buf.ode_action()
+map("n", "<A-CR>", function()
+  vim.lsp.buf.code_action()
 end, { desc = "LSP 代码事件(如修复,重构等)" })
 map("n", "gr", function()
   vim.lsp.buf.references()

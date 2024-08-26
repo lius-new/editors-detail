@@ -1,4 +1,14 @@
 local plugins = {
+
+  -- nvimtree plugin
+  {
+    "nvim-tree/nvim-tree.lua",
+    cmd = { "NvimTreeToggle", "NvimTreeFocus" },
+    opts = function()
+      return require "configs.nvimtree"
+    end,
+    lazy = true,
+  },
   -- MASON plugin
   {
     "williamboman/mason.nvim",
@@ -10,7 +20,7 @@ local plugins = {
   {
     "folke/todo-comments.nvim",
     dependencies = { "nvim-lua/plenary.nvim" },
-    opts = function()
+    config = function()
       require("todo-comments").setup()
     end,
     lazy = false, -- 取消lazy loader
@@ -18,8 +28,10 @@ local plugins = {
   -- outline plugin
   {
     "simrat39/symbols-outline.nvim",
-    opts = function()
-      require("symbols-outline").setup()
+    config = function()
+      require("symbols-outline").setup {
+        position = "left",
+      }
     end,
     lazy = false, -- 取消lazy loader
   },
@@ -67,6 +79,16 @@ local plugins = {
   {
     "leoluz/nvim-dap-go",
     ft = "go",
+  },
+  ----------lsp plugin----------
+  ---代码增强
+  {
+    "lvimuser/lsp-inlayhints.nvim",
+    lazy = true,
+    event = "LspAttach",
+    config = function()
+      require("lsp-inlayhints").setup()
+    end,
   },
 }
 
