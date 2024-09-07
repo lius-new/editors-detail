@@ -82,3 +82,37 @@ lspconfig.rust_analyzer.setup {
     inlayhints.on_attach(client, bufnr)
   end,
 }
+lspconfig.tsserver.setup {
+  on_attach = function(client, bufnr)
+    nvlsp.on_attach(client, bufnr)
+    inlayhints.on_attach(client, bufnr)
+  end,
+  filetypes = { "typescript", "typescriptreact", "tsx", "javascript", "javascriptreact", "jsx" },
+  cmd = { "typescript-language-server", "--stdio" },
+  settings = {
+    typescript = {
+      inlayHints = {
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+    },
+    javascript = {
+      inlayHints = {
+        includeInlayParameterNameHints = "all",
+        includeInlayParameterNameHintsWhenArgumentMatchesName = false,
+        includeInlayFunctionParameterTypeHints = true,
+        includeInlayVariableTypeHints = true,
+        includeInlayVariableTypeHintsWhenTypeMatchesName = false,
+        includeInlayPropertyDeclarationTypeHints = true,
+        includeInlayFunctionLikeReturnTypeHints = true,
+        includeInlayEnumMemberValueHints = true,
+      },
+    },
+  },
+}
