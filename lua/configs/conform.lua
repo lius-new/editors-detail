@@ -21,6 +21,7 @@ local options = {
     graphql = { "prettier", stop_after_first = true },
     handlebars = { "prettier", stop_after_first = true },
     toml = { "taplo", stop_after_first = true },
+    proto = { "proto", stop_after_first = true },
     ["_"] = { "trim_whitespace" },
   },
   formatters = {
@@ -33,6 +34,12 @@ local options = {
       command = "taplo",
       args = { "fmt", "--option", "indent_tables=false", "-" },
       stdin = true,
+      lsp_fallback = true,
+    },
+    proto = {
+      command = "buf",
+      args = { "format", "$FILENAME", "-w" },
+      stdin = false,
       lsp_fallback = true,
     },
   },

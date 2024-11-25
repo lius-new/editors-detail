@@ -4,7 +4,7 @@ local map = vim.keymap.set
 local nomap = vim.keymap.del
 
 -- Disable mappings
-------------------
+-----------------
 nomap({ "i", "n" }, "<C-k>")
 nomap({ "i", "n" }, "<C-h>")
 nomap({ "n", "v" }, "<leader>/") -- 取消键位功能: 注释
@@ -15,7 +15,9 @@ nomap("n", "<C-j>") -- 取消键位功能: 注销切换窗口内分屏
 nomap("n", "<C-l>") -- 取消键位功能: 注销切换窗口内分屏
 nomap("n", "<C-c>") -- 取消键位功能: 复制到剪切板
 -- nomap({ "n","t"}, "<leader>h")          -- 取消键位功能: leader打开底部终端
--- nomap({ "n","t"}, "<leader>v")          -- 取消键位功能: leader打开一侧终端
+-- nomap({ "n", "t" }, "<leader>v") -- 取消键位功能: leader打开一侧终端
+map("n", "<leader>v", "<CR>", { desc = "取消打开终端" })
+map("n", "<leader>h", "<CR>", { desc = "取消打开终端" })
 -- map("n", "<leader>h", function() end, { desc = "" }) -- 取消键位功能: leader打开底部终端
 -- map("t", "<leader>h", function() end, { desc = "" }) -- 取消键位功能: leader打开底部终端
 -- map("n", "<leader>v", function() end, { desc = "" }) -- 取消键位功能: leader打开底部终端
